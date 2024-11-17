@@ -15,7 +15,7 @@
     "url": "https://github.com/enesusta/rcomponents"
   },
   "homepage": "https://github.com/enesusta/rcomponents#readme",
-  "main": "dist/index.js",
+  "main": "dist/index.es.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {

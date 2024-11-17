@@ -22,8 +22,9 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: path.resolve(__dirname, "src/index.ts"),
         name: formattedName,
-        formats: ["es", "umd"],
-        fileName: (format) => `${formattedName}.${format}.js`,
+        formats: ["es"],
+        // fileName: (format) => `${formattedName}.${format}.js`,
+        fileName: (format) => `index.${format}.js`,
       },
       rollupOptions: {
         external: [
