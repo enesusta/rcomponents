@@ -23,8 +23,16 @@
     "npm": ">=5"
   },
   "devDependencies": {
+    "@types/react": "^18.3.12",
     "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.3.0"
-  }
+  },
+  "dependencies": {
+    "@mantine/core": "^7.14.1"
+  },
+  "files": [
+    "dist"
+  ]
 }

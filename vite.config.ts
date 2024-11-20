@@ -13,14 +13,29 @@ export default defineConfig(({ mode }) => {
       react({ include: /\.(js|jsx|ts|tsx)$/ }),
       dts({
         insertTypesEntry: true,
+        include: ["lib"],
       }),
     ],
     server: {
       open: true, // If we want to open the app once its started
     },
+    resolve: {
+      alias: [
+        {
+          find: /@mantine\/core/,
+          replacement: path.resolve(
+            __dirname,
+            "node_modules",
+            "@mantine",
+            "core",
+          ),
+        },
+      ],
+    },
     build: {
+      copyPublicDir: false,
       lib: {
-        entry: path.resolve(__dirname, "src/index.ts"),
+        entry: path.resolve(__dirname, "lib/index.ts"),
         name: formattedName,
         formats: ["es"],
         // fileName: (format) => `${formattedName}.${format}.js`,
