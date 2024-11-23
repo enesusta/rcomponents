@@ -1,5 +1,5 @@
 {
-  "name": "rcomponents",
+  "name": "rpl",
   "version": "0.0.5",
   "description": "",
   "author": "enesusta",
@@ -7,16 +7,17 @@
     "clean": "rm -rf dist form",
     "start": "vite",
     "build": "pnpm clean && vite build && terser dist/index.es.js --compress -o dist/index.es.js && pnpm build-form",
-    "build-form": "vite build -c vite.form.config.ts && terser form/index.es.js --compress -o form/index.es.js",
+    "build-form": "vite build -c vite.form.config.ts && terser form/index.js --compress -o form/index.js",
+    "build-form1": "vite build -c vite.form.config.ts",
     "preview": "vite preview"
   },
   "keywords": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/enesusta/rcomponents"
+    "url": "https://github.com/enesusta/rpl"
   },
-  "homepage": "https://github.com/enesusta/rcomponents#readme",
+  "homepage": "https://github.com/enesusta/rpl#readme",
   "main": "dist/index.es.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",

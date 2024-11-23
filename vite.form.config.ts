@@ -24,16 +24,10 @@ export default defineConfig(({ mode }) => {
         entry: path.resolve(__dirname, "lib/form/index.ts"),
         name: formattedName,
         formats: ["es"],
-        fileName: (format) => `index.${format}.js`,
+        fileName: (format) => `index.js`,
       },
       rollupOptions: {
-        output: {
-          globals: {
-            react: "React",
-            "react/jsx-runtime": "react/jsx-runtime",
-            "react-dom": "ReactDOM",
-          },
-        },
+        external: ["react", "React", "react/jsx-runtime", "react-dom"],
       },
     },
   };
