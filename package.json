@@ -1,11 +1,13 @@
 {
-  "name": "@enesusta/rcomponents",
-  "version": "0.0.1",
+  "name": "rcomponents",
+  "version": "0.0.5",
   "description": "",
   "author": "enesusta",
   "scripts": {
+    "clean": "rm -rf dist form",
     "start": "vite",
-    "build": "vite build",
+    "build": "pnpm clean && vite build && terser dist/index.es.js --compress -o dist/index.es.js && pnpm build-form",
+    "build-form": "vite build -c vite.form.config.ts && terser form/index.es.js --compress -o form/index.es.js",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -19,20 +21,23 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+    "node": ">=21",
+    "npm": ">=10"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@vitejs/plugin-react": "^4.3.3",
+    "terser": "^5.36.0",
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.3.0"
   },
   "dependencies": {
-    "@mantine/core": "^7.14.1"
+    "@mantine/core": "^7.14.1",
+    "react-hook-form": "^7.53.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "form"
   ]
 }

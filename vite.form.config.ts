@@ -7,41 +7,26 @@ import { defineConfig } from "vite";
 
 const formattedName = name.match(/[^/]+$/)?.[0] ?? name;
 
-const aliases = [
-  {
-    find: /@mantine\/core/,
-    replacement: path.resolve(__dirname, "node_modules", "@mantine", "core"),
-  },
-];
-
 export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react({ include: /\.(js|jsx|ts|tsx)$/ }),
       dts({
         insertTypesEntry: true,
-        include: ["lib"],
+        include: ["lib/form"],
       }),
     ],
-    resolve: { alias: aliases },
     build: {
+      outDir: "form",
       copyPublicDir: false,
-      target: "es2022",
+      minify: "terser",
       lib: {
-        entry: path.resolve(__dirname, "lib/index.ts"),
+        entry: path.resolve(__dirname, "lib/form/index.ts"),
         name: formattedName,
         formats: ["es"],
-        // fileName: (format) => `${formattedName}.${format}.js`,
         fileName: (format) => `index.${format}.js`,
       },
       rollupOptions: {
-        external: [
-          "react",
-          "react/jsx-runtime",
-          "react-dom",
-          "@mantine/core",
-          // "@mantine/dates",
-        ],
         output: {
           globals: {
             react: "React",
